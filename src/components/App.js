@@ -8,10 +8,10 @@ function App() {
   return (
     <div className="App">
       <h1>React context api</h1>
+      <h2>Color themeing</h2>
       <Card/>
       <Switch
-        onClick={() => console.log('Clicked')}
-        title='Change theme'
+        onChange={() => console.log('Clicked')}
       />
     </div>
   );
