@@ -1,3 +1,45 @@
+/* Transitons for smooth theme change */
+h1,
+h2,
+p,
+svg {
+  transition: color .5s ease;
+}
+
+.Card button {
+  transition: background .5s ease;
+}
+
+.Card,
+button {
+  transition: border-color .5s ease;
+}
+
+/* Colors to change */
+h2 {
+  color: var(--heading);
+}
+
+p, 
+h1 {
+  color: var(--text);  
+}
+
+.Card,
+.Switch {
+  border-color: var(--border);
+}
+
+.Card button {
+  background: var(--main);
+  color: var(--textAlt);
+}
+
+.icon {
+  color: var(--inactive);
+}
+
+/* All other styles */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,6 +47,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
 }
 
 code {
@@ -12,12 +55,88 @@ code {
     monospace;
 }
 
-:root {
-  --border: rgba(0,0,0,.2);
-  --shadow: #000;
-  --heading: rgba(0,0,0,.8);
-  --main: #cf56a1;
-  --text: #000;
-  --textAlt: #fff;
-  --inactive: rgba(0,0,0,.3);
+.App {
+  margin: 5% 15%;
+}
+
+.Card {
+  padding: 5%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px -10px black;
+  margin-top: 3rem;
+  height: auto;
+}
+
+.Card button {
+  width: 100%;
+  border-radius: 10px;
+  height: 2rem;
+  font-size: 1rem;
+  box-shadow: 7px 7px 10px -10px black;
+  font-weight: 700;
+  border: none;
+}
+
+.Card .img {
+  width: 100%;
+  height: 200px;
+  opacity: .9;
+  background: url('https://www.fullstacklabs.co/img/developersReact/whylove_3.png') center;
+  background-size: cover;
+}
+
+.Switch {
+  width: 4rem;
+  height: 2rem;
+  margin: 2rem 0;
+  position: relative;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 4px 4px 10px -3px black;
+  background: none;
+  padding: 0; 
+}
+
+.Switch .icon {
+  font-size: 1.3rem;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+.active {
+  color: var(--heading);
+}
+
+@media (min-width: 450px) {
+  .App {
+    margin: 5% 20%;
+  }
+}
+
+@media (min-width: 700px) {
+  .App {
+    margin: 5% 30%;
+  }
+}
+
+@media (min-width: 900px) {
+  .App {
+    margin: 5% 35%;
+  }
+}
+
+@media (min-width: 1350px) {
+  .App {
+    margin: 5% 40%;
+  }
 }

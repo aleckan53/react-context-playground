@@ -1,22 +1,18 @@
-import React from 'react';
-import './styles/Switch.css';
+import React, { useContext } from 'react';
 import { IoMdMoon as Moon, IoMdSunny as Sun } from 'react-icons/io';
 
-export default function Switch (props) {
+import ThemeContext from '../context/ThemeContext';
 
+export default function Switch (props) {
+  const { dark } = useContext(ThemeContext);
+  
   return (
-    <div className='Switch'>
-      <input 
-        checked={props.checked}
-        onChange={props.onChange}
-        type='checkbox'
-        style={{
-          background: `image(${Moon})`
-        }}/>
-      <Sun
-        className={`icon sun`}/>
-      <Moon 
-        className={`icon moon`}/>
-    </div>
+    <button 
+      className='Switch'
+      onClick={props.onClick}
+    >
+      <Sun className={`icon ${!dark ? 'active' : ''}`}/>
+      <Moon className={`icon ${dark ? 'active' : ''}`}/>
+    </button>
   );
 } 
