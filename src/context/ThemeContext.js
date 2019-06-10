@@ -8,8 +8,8 @@ const ThemeContext = React.createContext({
 export default ThemeContext;
 
 export function ThemeProvider (props) {
-  // keeps track of the current theme
-  const [dark, setDark] = useState(window.localStorage.getItem('darkTheme'));
+  // keeps state of the current theme
+  const [dark, setDark] = useState(false);
   
   // paints the app before it renders elements
   useLayoutEffect(() => {
@@ -18,9 +18,7 @@ export function ThemeProvider (props) {
     if (lastTheme === 'true') {
       setDark(true);
       applyTheme(darkTheme);
-    }
-
-    if (!lastTheme || lastTheme === 'false') {
+    } else {
       setDark(false);
       applyTheme(lightTheme);
     } 
@@ -35,7 +33,7 @@ export function ThemeProvider (props) {
 
   const toggle = () => {
     const body = document.getElementsByTagName('body')[0];
-    body.style.cssText = 'transition: background .5s linear';
+    body.style.cssText = 'transition: background .5s ease';
 
     setDark(!dark);
     window.localStorage.setItem('darkTheme', !dark);

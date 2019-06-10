@@ -1,33 +1,32 @@
-/* Transitons for smooth theme change */
-h1,
-h2,
-p,
-svg {
-  transition: color .5s ease;
+/* define all colors as variables */
+:root {
+  --border: rgba(0,0,0,.2);
+  --shadow: #000;
+  --heading: rgba(255,100,0,1);
+  --main: #1d8f13;
+  --text: #000;
+  --textAlt: #fff;
+  --inactive: rgba(0,0,0,.3);
+  --background: #fff;
 }
 
-.Card button {
-  transition: background .5s ease;
+/* elements that change color */
+h1, 
+p { 
+  color: var(--text); 
 }
 
-.Card,
-button {
-  transition: border-color .5s ease;
+h2 { 
+  color: var(--heading); 
 }
 
-/* Colors to change */
-h2 {
-  color: var(--heading);
+.Card, 
+.Switch { 
+  border-color: var(--border); 
 }
 
-p, 
-h1 {
-  color: var(--text);  
-}
-
-.Card,
-.Switch {
-  border-color: var(--border);
+.icon { 
+  color: var(--inactive); 
 }
 
 .Card button {
@@ -35,8 +34,9 @@ h1 {
   color: var(--textAlt);
 }
 
-.icon {
-  color: var(--inactive);
+/* Transitons for smooth theme change */
+*:not(body) {
+  transition: all .5s ease;
 }
 
 /* All other styles */
