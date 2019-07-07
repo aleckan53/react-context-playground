@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "dark-theme",
+  "name": "dark-theme",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+}
